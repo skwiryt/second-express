@@ -14,14 +14,13 @@ app.get('/about', (req, res) => {
   res.show('about.html');
 });
 app.use(express.static(path.join(__dirname, '/public')));
-app.use('/user/settings', (req, res, next) => {
+
+app.use('/user', (req, res, next) => {
   res.show('login.html');
   next();
 });
-app.use('/user/panel', (req, res, next) => {
-  res.show('login.html');
-  next();
-});
+
+
 app.use((req, res) => {
   res.show('error.html');
 });
